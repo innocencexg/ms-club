@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class SubjectController {
     @GetMapping("/test")
     public String test(){
-        return "hello";
+        return "hello world";
     }
 }
