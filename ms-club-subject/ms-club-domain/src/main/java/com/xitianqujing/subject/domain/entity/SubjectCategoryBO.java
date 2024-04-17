@@ -12,6 +12,7 @@ import java.util.List;
  * @since 2024-03-03 20:39:22
  */
 @Data
+
 public class SubjectCategoryBO implements Serializable {
     /**
      * 主键
