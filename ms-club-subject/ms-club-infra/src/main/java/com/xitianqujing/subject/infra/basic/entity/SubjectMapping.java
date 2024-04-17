@@ -5,12 +5,8 @@ import java.util.Date;
 
 /**
  * 题目分类关系表(SubjectMapping)实体类
- *
- * @author makejava
- * @since 2024-03-08 10:53:13
  */
 public class SubjectMapping implements Serializable {
-    private static final long serialVersionUID = 328962819836797286L;
     /**
      * 主键
      */
