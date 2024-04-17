@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 
 public class SubjectCategoryBO implements Serializable {
+
     /**
      * 主键
      */
