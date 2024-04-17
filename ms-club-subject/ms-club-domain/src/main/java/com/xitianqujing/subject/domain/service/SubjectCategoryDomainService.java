@@ -1,7 +1,6 @@
 package com.xitianqujing.subject.domain.service;
 
 import com.xitianqujing.subject.domain.entity.SubjectCategoryBO;
-import com.xitianqujing.subject.infra.basic.entity.SubjectCategory;
 
 import java.util.List;
 
