@@ -1,0 +1,20 @@
+package com.xitianqujing.oss;
+
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+/**
+ * oss服务启动器
+ *
+ * @author: gx
+ * @data: 2024/2/11
+ */
+@SpringBootApplication
+@ComponentScan("com.xitianqujing")
+public class OssApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(OssApplication.class);
+    }
+}
