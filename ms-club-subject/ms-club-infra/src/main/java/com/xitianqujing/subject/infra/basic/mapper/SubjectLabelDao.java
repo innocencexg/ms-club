@@ -24,26 +24,27 @@ public interface SubjectLabelDao {
     /**
      * 查询指定行数据
      *
-     * @param subjectLable 查询条件
+     * @param subjectLabel 查询条件
      * @return 对象列表
      */
-    List<SubjectLabel> queryAllByLimit(SubjectLabel subjectLable);
+    List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel);
+
 
     /**
      * 统计总行数
      *
-     * @param subjectLable 查询条件
+     * @param subjectLabel 查询条件
      * @return 总行数
      */
-    long count(SubjectLabel subjectLable);
+    long count(SubjectLabel subjectLabel);
 
     /**
      * 新增数据
      *
-     * @param subjectLable 实例对象
+     * @param subjectLabel 实例对象
      * @return 影响行数
      */
-    int insert(SubjectLabel subjectLable);
+    int insert(SubjectLabel subjectLabel);
 
     /**
      * 批量新增数据（MyBatis原生foreach方法）
@@ -65,10 +66,10 @@ public interface SubjectLabelDao {
     /**
      * 修改数据
      *
-     * @param subjectLable 实例对象
+     * @param subjectLabel 实例对象
      * @return 影响行数
      */
-    int update(SubjectLabel subjectLable);
+    int update(SubjectLabel subjectLabel);
 
     /**
      * 通过主键删除数据
@@ -78,6 +79,11 @@ public interface SubjectLabelDao {
      */
     int deleteById(Long id);
 
-    List<SubjectLabel> batchQueryById(@Param("list") List<Long> lableIdList);
+    /**
+     * 根据id查询标签信息（批量）
+     * @param labelIdList
+     * @return
+     */
+    List<SubjectLabel> batchQueryById(@Param("list") List<Long> labelIdList);
 }
 

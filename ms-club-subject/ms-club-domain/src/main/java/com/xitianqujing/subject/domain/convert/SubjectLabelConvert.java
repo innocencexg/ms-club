@@ -5,10 +5,14 @@ import com.xitianqujing.subject.infra.basic.entity.SubjectLabel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface SubjectLabelConvert {
 
-    SubjectLabelConvert INSTANTCE = Mappers.getMapper(SubjectLabelConvert.class);
+    SubjectLabelConvert INSTANT = Mappers.getMapper(SubjectLabelConvert.class);
 
     SubjectLabel convertBoToLabel(SubjectLabelBO subjectLabelBO);
+
+    List<SubjectLabelBO> convertLabelToBoList(List<SubjectLabel> subjectLabelList);
 }

@@ -23,18 +23,18 @@ public interface SubjectLabelService {
     /**
      * 新增数据
      *
-     * @param subjectLable 实例对象
+     * @param subjectLabel 实例对象
      * @return 实例对象
      */
-    int insert(SubjectLabel subjectLable);
+    int insert(SubjectLabel subjectLabel);
 
     /**
      * 修改数据
      *
-     * @param subjectLable 实例对象
+     * @param subjectLabel 实例对象
      * @return 实例对象
      */
-    int update(SubjectLabel subjectLable);
+    int update(SubjectLabel subjectLabel);
 
     /**
      * 通过主键删除数据
@@ -44,5 +44,17 @@ public interface SubjectLabelService {
      */
     boolean deleteById(Long id);
 
-    List<SubjectLabel> batchQueryById(List<Long> lableIdList);
+    /**
+     * 根据id查询标签信息（批量）
+     * @param labelIdList
+     * @return
+     */
+    List<SubjectLabel> batchQueryById(List<Long> labelIdList);
+
+    /**
+     * 条件查询
+     * @param subjectLabel
+     * @return
+     */
+    List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel);
 }

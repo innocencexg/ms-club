@@ -30,27 +30,26 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
         return this.subjectLabelDao.queryById(id);
     }
 
-
     /**
      * 新增数据
      *
-     * @param subjectLable 实例对象
+     * @param subjectLabel 实例对象
      * @return 实例对象
      */
     @Override
-    public int insert(SubjectLabel subjectLable) {
-        return this.subjectLabelDao.insert(subjectLable);
+    public int insert(SubjectLabel subjectLabel) {
+        return  this.subjectLabelDao.insert(subjectLabel);
     }
 
     /**
      * 修改数据
      *
-     * @param subjectLable 实例对象
+     * @param subjectLabel 实例对象
      * @return 实例对象
      */
     @Override
-    public int update(SubjectLabel subjectLable) {
-        return this.subjectLabelDao.update(subjectLable);
+    public int update(SubjectLabel subjectLabel) {
+        return this.subjectLabelDao.update(subjectLabel);
     }
 
     /**
@@ -64,8 +63,23 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
         return this.subjectLabelDao.deleteById(id) > 0;
     }
 
+    /**
+     * 根据id查询标签信息（批量）
+     * @param labelIdList
+     * @return
+     */
     @Override
-    public List<SubjectLabel> batchQueryById(List<Long> lableIdList) {
-        return this.subjectLabelDao.batchQueryById(lableIdList);
+    public List<SubjectLabel> batchQueryById(List<Long> labelIdList) {
+        return this.subjectLabelDao.batchQueryById(labelIdList);
+    }
+
+    /**
+     * 条件查询
+     * @param subjectLabel
+     * @return
+     */
+    @Override
+    public List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel) {
+        return this.subjectLabelDao.queryByCondition(subjectLabel);
     }
 }

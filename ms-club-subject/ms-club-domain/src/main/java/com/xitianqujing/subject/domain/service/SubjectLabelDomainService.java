@@ -5,24 +5,36 @@ import com.xitianqujing.subject.domain.entity.SubjectLabelBO;
 import java.util.List;
 
 /**
- * 标签领域服务
+ * 题目标签领域服务
  */
 public interface SubjectLabelDomainService {
+
     /**
      * 新增标签
+     * @param subjectCategoryBO
      */
-    Boolean add(SubjectLabelBO subjectLableBO);
+    Boolean add(SubjectLabelBO subjectCategoryBO);
+
 
     /**
      * 更新标签
+     * @param subjectLabelBO
+     * @return
      */
-    Boolean update(SubjectLabelBO subjectLableBO);
+    Boolean update(SubjectLabelBO subjectLabelBO);
+
     /**
      * 删除标签
+     * @param subjectLabelBO
+     * @return
      */
-    Boolean delete(SubjectLabelBO subjectLableBO);
+    Boolean delete(SubjectLabelBO subjectLabelBO);
+
     /**
      * 查询分类下标签
+     * @param subjectLabelBO
+     * @return
      */
-    List<SubjectLabelBO> queryLableByCategoryId(SubjectLabelBO subjectLableBO);
+    List<SubjectLabelBO> queryLabelByCategoryId(SubjectLabelBO subjectLabelBO);
 }
+
