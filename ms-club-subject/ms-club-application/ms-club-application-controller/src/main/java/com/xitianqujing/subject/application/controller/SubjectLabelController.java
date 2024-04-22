@@ -38,7 +38,7 @@ public class SubjectLabelController {
             if(log.isInfoEnabled()){
                 log.info("SubjectLabelController.add.dto:{}", JSON.toJSONString(subjectLabelDTO));
             }
-            Preconditions.checkArgument(!StringUtils.isBlank(subjectLabelDTO.getLabelName()), "标签名称不能为空！");
+            Preconditions.checkArgument(!StringUtils.isBlank(subjectLabelDTO.getLabelName()), "标签名称不能为空。");
             SubjectLabelBO subjectLabelBO = SubjectLabelDTOConvert.INSTANT.convertDtoToLabelBO(subjectLabelDTO);
             Boolean result = subjectLabelDomainService.add(subjectLabelBO);
             return Result.ok(result);
