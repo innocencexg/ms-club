@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * 题目分类关系表(SubjectMapping)表服务实现类
  *
- * @author makejava
- * @since 2024-03-08 10:53:13
+ * @author gx
+ * @since 2024-02-13 19:51:44
  */
 @Service("subjectMappingService")
 public class SubjectMappingServiceImpl implements SubjectMappingService {
@@ -29,7 +29,6 @@ public class SubjectMappingServiceImpl implements SubjectMappingService {
     public SubjectMapping queryById(Long id) {
         return this.subjectMappingDao.queryById(id);
     }
-
 
     /**
      * 新增数据
@@ -52,6 +51,7 @@ public class SubjectMappingServiceImpl implements SubjectMappingService {
     @Override
     public int update(SubjectMapping subjectMapping) {
         return this.subjectMappingDao.update(subjectMapping);
+
     }
 
     /**
@@ -65,12 +65,20 @@ public class SubjectMappingServiceImpl implements SubjectMappingService {
         return this.subjectMappingDao.deleteById(id) > 0;
     }
 
+
+    /**
+     * 查询标签id
+     * @param subjectMapping
+     * @return
+     */
     @Override
     public List<SubjectMapping> queryLabelId(SubjectMapping subjectMapping) {
         return this.subjectMappingDao.queryDistinctLabelId(subjectMapping);
     }
+
     /**
      * 批量插入
+     * @param mappingList
      */
     @Override
     public void batchInsert(List<SubjectMapping> mappingList) {
