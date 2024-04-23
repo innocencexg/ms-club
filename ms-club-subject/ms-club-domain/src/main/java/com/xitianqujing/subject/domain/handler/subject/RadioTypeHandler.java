@@ -15,8 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @Author: gx
- * @CreateTime: 2024/02/19  14:39
+ * 单选题目的策略类
  */
 @Component
 public class RadioTypeHandler implements com.xitianqujing.subject.domain.handler.subject.SubjectTypeHandler {

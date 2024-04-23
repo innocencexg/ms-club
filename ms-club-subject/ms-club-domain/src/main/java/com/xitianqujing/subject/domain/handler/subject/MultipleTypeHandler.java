@@ -15,11 +15,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @Author: gx
- * @CreateTime: 2024/02/19  14:39
+ * 多选题目的策略类
  */
 @Component
-public class MultipleTypeHandler implements SubjectTypeHandler{
+public class MultipleTypeHandler implements SubjectTypeHandler {
 
     @Resource
     private SubjectMultipleService subjectMultipleService;

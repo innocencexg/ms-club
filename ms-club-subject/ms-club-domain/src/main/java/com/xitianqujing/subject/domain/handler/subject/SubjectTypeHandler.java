@@ -9,18 +9,21 @@ public interface SubjectTypeHandler {
 
     /**
      * 枚举身份识别
+     *
      * @return
      */
     SubjectInfoTypeEnum getHandlerType();
 
     /**
      * 实际的题目插入
+     *
      * @param subjectInfoBO
      */
     void add(SubjectInfoBO subjectInfoBO);
 
     /**
      * 实际的题目插入
+     *
      * @param subjectId
      * @return
      */

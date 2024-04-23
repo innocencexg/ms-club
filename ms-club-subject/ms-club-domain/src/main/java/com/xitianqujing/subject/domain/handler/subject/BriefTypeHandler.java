@@ -12,11 +12,10 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 /**
- * @Author: gx
- * @CreateTime: 2024/02/19  14:39
+ * 简单题目的策略类
  */
 @Component
-public class BriefTypeHandler implements SubjectTypeHandler{
+public class BriefTypeHandler implements SubjectTypeHandler {
 
     @Resource
     private SubjectBriefService subjectBriefService;

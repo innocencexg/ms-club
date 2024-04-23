@@ -14,14 +14,12 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @Author: gx
- * @CreateTime: 2024/02/19  14:39
+ * 判断题目的策略类
  */
 @Component
-public class JudgeTypeHandler implements SubjectTypeHandler{
+public class JudgeTypeHandler implements SubjectTypeHandler {
     @Resource
     private SubjectJudgeService subjectJudgeService;
-
 
 
     @Override
