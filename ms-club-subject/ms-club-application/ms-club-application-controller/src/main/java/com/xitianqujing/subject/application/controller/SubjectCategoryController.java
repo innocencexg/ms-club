@@ -119,6 +119,7 @@ public class SubjectCategoryController {
             if(log.isInfoEnabled()){
                 log.info("SubjectCategoryController.delete.dto:{}", JSON.toJSONString(subjectCategoryDTO));
             }
+
             SubjectCategoryBO subjectCategoryBO  = SubjectCategoryDTOConvert.INSTANT.convertDtoToCategoryBO(subjectCategoryDTO);
             Boolean result = subjectCategoryDomainService.delete(subjectCategoryBO);
             return Result.ok(result);
