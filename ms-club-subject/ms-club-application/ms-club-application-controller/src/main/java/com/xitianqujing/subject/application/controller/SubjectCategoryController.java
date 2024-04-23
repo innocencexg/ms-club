@@ -106,7 +106,7 @@ public class SubjectCategoryController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectCategoryController.update.error:{}",e.getMessage(),e);
-            return Result.fail("更新分类失败");
+            return Result.fail("更新分类失败！");
         }
     }
 
