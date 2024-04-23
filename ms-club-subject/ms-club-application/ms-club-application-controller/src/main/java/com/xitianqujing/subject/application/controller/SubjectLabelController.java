@@ -64,7 +64,7 @@ public class SubjectLabelController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectLabelController.update.error:{}", e.getMessage(), e);
-            return Result.fail("更新标签失败");
+            return Result.fail("更新标签失败！");
         }
     }
 
