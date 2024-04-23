@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("com.xitianqujing")
-@MapperScan("com.chaojicomputer.**.mapper")
+@MapperScan("com.xitianqujing.**.mapper")
 public class AuthApplication {
     public static void main(String[] args) {
         SpringApplication.run(AuthApplication.class);
