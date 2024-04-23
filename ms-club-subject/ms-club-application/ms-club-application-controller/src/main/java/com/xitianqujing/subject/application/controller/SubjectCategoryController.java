@@ -124,7 +124,7 @@ public class SubjectCategoryController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectCategoryController.delete.error:{}",e.getMessage(),e);
-            return Result.fail("删除分类失败！");
+            return Result.fail("删除分类失败");
         }
     }
 
