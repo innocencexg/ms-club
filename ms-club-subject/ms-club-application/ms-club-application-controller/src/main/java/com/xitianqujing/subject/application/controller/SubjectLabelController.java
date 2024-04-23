@@ -85,7 +85,7 @@ public class SubjectLabelController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectLabelController.delete.error:{}", e.getMessage(), e);
-            return Result.fail("删除标签失败");
+            return Result.fail("删除标签失败！");
         }
     }
 
