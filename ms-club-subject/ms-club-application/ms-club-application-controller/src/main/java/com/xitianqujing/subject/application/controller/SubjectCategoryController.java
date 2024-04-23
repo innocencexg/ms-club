@@ -153,7 +153,7 @@ public class SubjectCategoryController {
             return Result.ok(dtoList);
         } catch (Exception e) {
             log.error("SubjectCategoryController.queryPrimaryCategory.error:{}", e.getMessage(), e);
-            return Result.fail("查询失败");
+            return Result.fail("查询失败！");
         }
     }
 }
