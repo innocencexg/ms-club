@@ -33,8 +33,6 @@ public class SubjectCategoryController {
 
     /**
      * 新增题目分类
-     * @param subjectCategoryDTO
-     * @return
      */
     @PostMapping("/add")
     public Result<Boolean> add(@RequestBody SubjectCategoryDTO subjectCategoryDTO){
@@ -76,8 +74,6 @@ public class SubjectCategoryController {
 
     /**
      * 查询大类下的分类
-     * @param subjectCategoryDTO
-     * @return
      */
     @PostMapping("/queryCategoryByPrimary")
     public Result<List<SubjectCategoryDTO>> queryCategoryByPrimary(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
@@ -98,7 +94,6 @@ public class SubjectCategoryController {
 
     /**
      * 更新分类
-     * @return
      */
     @PostMapping("/update")
     public Result<List<Boolean>> update(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
@@ -117,8 +112,6 @@ public class SubjectCategoryController {
 
     /**
      * 删除分类
-     * @param subjectCategoryDTO
-     * @return
      */
     @PostMapping("/delete")
     public Result<List<Boolean>> delete(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
