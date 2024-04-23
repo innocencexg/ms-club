@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Component
 public class WxChatMsgFactory implements InitializingBean {
-
     @Resource
     private List<WxChatMsgHandler> wxChatMsgHandlerList;
 
