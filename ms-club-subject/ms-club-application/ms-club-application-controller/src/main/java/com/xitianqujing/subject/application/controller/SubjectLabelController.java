@@ -101,6 +101,7 @@ public class SubjectLabelController {
                 log.info("SubjectLabelController.queryLabelByCategoryId.dto:{}",
                         JSON.toJSONString(subjectLabelDTO));
             }
+
             Preconditions.checkNotNull(subjectLabelDTO.getCategoryId(), "分类id不能为空");
             SubjectLabelBO subjectLabelBO = SubjectLabelDTOConvert.INSTANT.convertDtoToLabelBO(subjectLabelDTO);
             List<SubjectLabelBO> resultList = subjectLabelDomainService.queryLabelByCategoryId(subjectLabelBO);
