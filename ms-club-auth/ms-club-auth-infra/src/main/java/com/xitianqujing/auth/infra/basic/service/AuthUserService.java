@@ -11,7 +11,6 @@ import java.util.List;
  * @since 2024-02-26 11:07:20
  */
 public interface AuthUserService {
-
     /**
      * 通过ID查询单条数据
      *

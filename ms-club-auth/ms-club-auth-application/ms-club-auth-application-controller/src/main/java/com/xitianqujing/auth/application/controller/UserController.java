@@ -87,6 +87,7 @@ public class UserController {
             AuthUserBO authUserBO = AuthUserDTOConverter.INSTANCE.convertDTOToBO(authUserDTO);
             return Result.ok(authUserDomainService.delete(authUserBO));
         } catch (Exception e) {
+
             log.error("UserController.update.error:{}", e.getMessage(), e);
             return Result.fail("删除用户信息失败");
         }

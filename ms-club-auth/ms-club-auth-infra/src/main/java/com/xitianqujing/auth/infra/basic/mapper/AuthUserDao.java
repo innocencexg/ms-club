@@ -29,7 +29,6 @@ public interface AuthUserDao {
     List<AuthUser> queryAllByLimit(AuthUser authUser);
 
 
-
     /**
      * 统计总行数
      *
