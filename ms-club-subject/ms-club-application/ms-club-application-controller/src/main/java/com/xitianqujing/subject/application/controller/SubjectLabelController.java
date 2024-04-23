@@ -44,7 +44,7 @@ public class SubjectLabelController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectLabelController.add.error:{}", e.getMessage(), e);
-            return Result.fail("新增标签失败");
+            return Result.fail("新增标签失败！");
         }
     }
 
