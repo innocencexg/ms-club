@@ -67,7 +67,6 @@ public class AuthUserServiceImpl implements AuthUserService {
     public Integer update(AuthUser authUser) {
         return this.authUserDao.update(authUser);
     }
-
     @Override
     public List<AuthUser> queryByCondition(AuthUser authUser) {
         return this.authUserDao.queryAllByLimit(authUser);

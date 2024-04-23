@@ -34,7 +34,6 @@ import java.util.stream.Collectors;
 public class AuthUserDomainServiceImpl implements AuthUserDomainService {
     @Resource
     private AuthUserService authUserService;
-
     @Resource
     private AuthUserRoleService authUserRoleService;
 

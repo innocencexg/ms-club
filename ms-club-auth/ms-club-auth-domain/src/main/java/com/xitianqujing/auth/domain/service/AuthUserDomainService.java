@@ -9,7 +9,6 @@ import com.xitianqujing.auth.domain.entity.AuthUserBO;
  * @CreateTime: 2024/02/26  11:15
  */
 public interface AuthUserDomainService {
-
     /**
      * 注册
      */

@@ -24,7 +24,6 @@ import javax.annotation.Resource;
 @RequestMapping("/permission/")
 @Slf4j
 public class PermissionController {
-
     @Resource
     private AuthPermissionDomainService authPermissionDomainService;
 
