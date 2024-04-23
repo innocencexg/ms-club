@@ -108,7 +108,7 @@ public class SubjectLabelController {
             return Result.ok(subjectLabelDTOS);
         }catch (Exception e){
             log.error("SubjectLabelController.queryLabelByCategoryId.error:{}", e.getMessage(), e);
-            return Result.fail("查询分类下标签失败");
+            return Result.fail("查询分类下标签失败！");
         }
     }
 
