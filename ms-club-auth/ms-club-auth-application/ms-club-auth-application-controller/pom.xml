@@ -46,14 +46,14 @@
             <version>2.9.0</version>
         </dependency>
         <dependency>
-            <groupId>com.chaojicomputer</groupId>
-            <artifactId>cp-club-auth-domain</artifactId>
+            <groupId>com.xitianqujing</groupId>
+            <artifactId>ms-club-auth-domain</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.chaojicomputer</groupId>
-            <artifactId>cp-club-auth-api</artifactId>
+            <groupId>com.xitianqujing</groupId>
+            <artifactId>ms-club-auth-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
