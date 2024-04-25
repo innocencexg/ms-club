@@ -1,19 +1,18 @@
 package com.xitianqujing.auth.infra.basic.entity;
 
 import java.util.Date;
+
 import lombok.Data;
+
 import java.io.Serializable;
 
 /**
  * (AuthPermission)实体类
- *
- * @author gx
- * @since 2024-02-26 14:23:27
  */
 @Data
 public class AuthPermission implements Serializable {
     private static final long serialVersionUID = 868516690133681746L;
-    
+
     private Long id;
     /**
      * 权限名称

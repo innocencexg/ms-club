@@ -16,8 +16,6 @@ import java.util.stream.Collectors;
 
 /**
  * minio文件操作工具
- * @Author: gx
- * @CreateTime: 2024/02/21  22:35
  */
 @Component
 public class MinioUtil {
@@ -98,7 +96,7 @@ public class MinioUtil {
     /**
      * 获取文件url
      */
-    public String getPreviewFileUrl(String bucketName, String objectName) throws Exception{
+    public String getPreviewFileUrl(String bucketName, String objectName) throws Exception {
         GetPresignedObjectUrlArgs args = GetPresignedObjectUrlArgs.builder()
                 .method(Method.GET)
                 .bucket(bucketName).object(objectName).build();

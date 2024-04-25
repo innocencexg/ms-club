@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 单选题信息表(SubjectRadio)表数据库访问层
- *
- * @author gx
- * @since 2024-02-14 16:17:03
  */
 public interface SubjectRadioDao {
 

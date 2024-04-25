@@ -4,9 +4,6 @@ import com.xitianqujing.auth.infra.basic.entity.AuthRole;
 
 /**
  * (AuthRole)表服务接口
- *
- * @author gx
- * @since 2024-02-26 10:54:00
  */
 public interface AuthRoleService {
 

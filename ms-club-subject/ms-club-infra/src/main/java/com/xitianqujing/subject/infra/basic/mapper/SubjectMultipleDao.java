@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 多选题信息表(SubjectMultiple)表数据库访问层
- *
- * @author gx
- * @since 2024-02-14 16:16:41
  */
 public interface SubjectMultipleDao {
 

@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 多选题信息表(SubjectMultiple)实体类
- *
- * @author gx
- * @since 2024-02-14 16:16:41
  */
 @Data
 public class SubjectMultiple implements Serializable {

@@ -2,8 +2,6 @@ package com.xitianqujing.oss.entity;
 
 /**
  * 文件类
- * @Author: gx
- * @CreateTime: 2024/02/21  22:41
  */
 public class FileInfo {
 

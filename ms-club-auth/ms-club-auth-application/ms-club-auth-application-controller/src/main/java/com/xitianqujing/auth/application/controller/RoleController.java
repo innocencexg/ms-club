@@ -17,8 +17,6 @@ import javax.annotation.Resource;
 
 /**
  * 角色controller
- * @Author: gx
- * @CreateTime: 2024/02/26  13:51
  */
 @RestController
 @RequestMapping("/role/")

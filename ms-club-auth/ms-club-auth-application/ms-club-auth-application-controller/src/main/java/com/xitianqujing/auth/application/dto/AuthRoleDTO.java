@@ -6,14 +6,11 @@ import java.io.Serializable;
 
 /**
  * 角色dto
- *
- * @author gx
- * @since 2024-02-26 10:53:55
  */
 @Data
 public class AuthRoleDTO implements Serializable {
     private static final long serialVersionUID = 974088621580336158L;
-    
+
     private Long id;
     /**
      * 角色名称

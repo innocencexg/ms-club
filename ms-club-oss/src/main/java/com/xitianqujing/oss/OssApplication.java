@@ -7,9 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * oss服务启动器
- *
- * @author: gx
- * @data: 2024/2/11
  */
 @SpringBootApplication
 @ComponentScan("com.xitianqujing")

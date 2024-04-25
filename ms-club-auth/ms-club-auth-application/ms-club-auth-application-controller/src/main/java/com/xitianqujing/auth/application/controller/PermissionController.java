@@ -17,8 +17,6 @@ import javax.annotation.Resource;
 
 /**
  * 权限controller
- * @Author: gx
- * @CreateTime: 2024/02/26  14:24
  */
 @RestController
 @RequestMapping("/permission/")
@@ -88,7 +86,7 @@ public class PermissionController {
     @RequestMapping("getPermission")
     public Result<Boolean> getPermission(String userName) {
         try {
-            log.info("PermissionController.getPermission.userName:{}",userName);
+            log.info("PermissionController.getPermission.userName:{}", userName);
             Preconditions.checkArgument(!StringUtils.isBlank(userName), "用户id不能为空");
             return Result.ok(authPermissionDomainService.getPermission(userName));
         } catch (Exception e) {

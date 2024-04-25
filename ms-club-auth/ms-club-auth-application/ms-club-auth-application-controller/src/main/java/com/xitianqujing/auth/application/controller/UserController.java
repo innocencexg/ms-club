@@ -19,11 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/25  21:32
- */
-
 @RestController
 @RequestMapping("/user/")
 @Slf4j
@@ -113,7 +108,6 @@ public class UserController {
     }
 
 
-
     /**
      * 用户启用/禁用
      */
@@ -133,10 +127,6 @@ public class UserController {
     }
 
 
-
-
-
-
     /**
      * 用户退出
      */
@@ -152,11 +142,6 @@ public class UserController {
             return Result.fail("用户登出失败");
         }
     }
-
-
-
-
-
 
 
     // 测试登录，浏览器访问： http://localhost:3011/user/doLogin?username=zhang&password=123456

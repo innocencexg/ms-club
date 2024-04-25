@@ -17,8 +17,6 @@ import javax.annotation.Resource;
 
 /**
  * 角色权限controller
- * @Author: gx
- * @CreateTime: 2024/02/26  14:51
  */
 @RestController
 @RequestMapping("/rolePermission/")
@@ -37,8 +35,8 @@ public class RolePermissionController {
             if (log.isInfoEnabled()) {
                 log.info("RolePermissionController.add.dto:{}", JSON.toJSONString(authRolePermissionDTO));
             }
-            Preconditions.checkArgument(!CollectionUtils.isEmpty(authRolePermissionDTO.getPermissionIdList()),"权限关联不能为空");
-            Preconditions.checkNotNull(authRolePermissionDTO.getRoleId(),"角色不能为空!");
+            Preconditions.checkArgument(!CollectionUtils.isEmpty(authRolePermissionDTO.getPermissionIdList()), "权限关联不能为空");
+            Preconditions.checkNotNull(authRolePermissionDTO.getRoleId(), "角色不能为空!");
             AuthRolePermissionBO rolePermissionBO = AuthRolePermissionDTOConverter.INSTANCE.convertDTOToBO(authRolePermissionDTO);
             return Result.ok(authRolePermissionDomainService.add(rolePermissionBO));
         } catch (Exception e) {

@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * 角色权限关联表(AuthRolePermission)表服务实现类
- *
- * @author gx
- * @since 2024-02-26 14:43:47
  */
 @Service("authRolePermissionService")
 public class AuthRolePermissionServiceImpl implements AuthRolePermissionService {

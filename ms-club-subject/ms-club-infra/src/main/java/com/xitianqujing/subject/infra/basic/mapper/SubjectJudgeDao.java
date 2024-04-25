@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 判断题(SubjectJudge)表数据库访问层
- *
- * @author gx
- * @since 2024-02-14 16:16:08
  */
 public interface SubjectJudgeDao {
 

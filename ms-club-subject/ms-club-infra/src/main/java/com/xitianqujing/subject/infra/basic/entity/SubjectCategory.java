@@ -9,9 +9,6 @@ import java.util.Date;
 
 /**
  * 题目分类(SubjectCategory)实体类
- *
- * @author makejava
- * @since 2024-02-05 23:51:32
  */
 @Data
 public class SubjectCategory implements Serializable {

@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 题目分类关系表(SubjectMapping)实体类
- *
- * @author gx
- * @since 2024-02-13 19:51:44
  */
 @Data
 public class SubjectMapping implements Serializable {

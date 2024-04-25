@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 题目分类关系表
- *
- * @author makejava
- * @since 2024-03-08 10:53:13
  */
 public interface SubjectMappingDao {
 

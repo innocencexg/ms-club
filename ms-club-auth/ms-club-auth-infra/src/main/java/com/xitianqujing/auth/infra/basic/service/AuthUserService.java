@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * 用户信息表(AuthUser)表服务接口
- *
- * @author gx
- * @since 2024-02-26 11:07:20
  */
 public interface AuthUserService {
     /**

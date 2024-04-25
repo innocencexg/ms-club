@@ -1,4 +1,5 @@
 package com.xitianqujing.club.gateway.filter;
+
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import com.google.gson.Gson;
@@ -14,8 +15,6 @@ import reactor.core.publisher.Mono;
 
 /**
  * 登录拦截器
- * @Author: gx
- * @CreateTime: 2024/03/02  00:19
  */
 @Component
 @Slf4j

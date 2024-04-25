@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * (AuthPermission)表服务接口
- *
- * @author gx
- * @since 2024-02-26 14:23:27
  */
 public interface AuthPermissionService {
 

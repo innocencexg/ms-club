@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 角色权限关联表(AuthRolePermission)bo
- *
- * @author gx
- * @since 2024-02-26 14:43:47
  */
 @Data
 public class AuthRolePermissionBO implements Serializable {

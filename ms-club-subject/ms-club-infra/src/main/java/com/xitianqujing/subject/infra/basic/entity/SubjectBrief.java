@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 简答题(SubjectBrief)实体类
- *
- * @author gx
- * @since 2024-02-14 16:15:19
  */
 @Data
 public class SubjectBrief implements Serializable {

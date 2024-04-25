@@ -1,9 +1,5 @@
 package com.xitianqujing.subject.common.util;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/04/18  19:34
- */
 public class IdWorkerUtil {
 
     private long workerId;

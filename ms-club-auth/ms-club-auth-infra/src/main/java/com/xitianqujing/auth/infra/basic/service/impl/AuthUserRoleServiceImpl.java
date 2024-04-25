@@ -9,9 +9,6 @@ import javax.annotation.Resource;
 
 /**
  * 用户角色表(AuthUserRole)表服务实现类
- *
- * @author gx
- * @since 2024-02-26 14:06:03
  */
 @Service("authUserRoleService")
 public class AuthUserRoleServiceImpl implements AuthUserRoleService {

@@ -9,10 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/21  23:49
- */
 @Configuration
 @RefreshScope
 public class StorageConfig {

@@ -12,8 +12,6 @@ import java.util.List;
 
 /**
  * minioIO存储适配器
- * @Author: gx
- * @CreateTime: 2024/02/21  23:22
  */
 public class MinioStorageAdapter implements StorageAdapter {
     @Resource

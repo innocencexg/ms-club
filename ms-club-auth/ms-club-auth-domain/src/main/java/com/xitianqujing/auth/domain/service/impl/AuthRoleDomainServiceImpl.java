@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  13:56
- */
 @Service
 @Slf4j
 public class AuthRoleDomainServiceImpl implements AuthRoleDomainService {

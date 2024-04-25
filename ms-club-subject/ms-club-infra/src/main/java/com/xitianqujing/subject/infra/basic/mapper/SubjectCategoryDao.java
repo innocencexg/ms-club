@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 题目分类(SubjectCategory)表数据库访问层
- *
- * @author makejava
- * @since 2024-02-05 23:51:32
  */
 public interface SubjectCategoryDao {
 

@@ -8,8 +8,6 @@ import java.util.List;
 
 /**
  * 分页返回的实体
- * @Author: gx
- * @CreateTime: 2024/02/19  15:57
  */
 @Data
 public class PageResult<T> implements Serializable {

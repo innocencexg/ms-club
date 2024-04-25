@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 角色权限关联表(AuthRolePermission)dto
- *
- * @author gx
- * @since 2024-02-26 14:43:47
  */
 @Data
 public class AuthRolePermissionDTO implements Serializable {
@@ -26,7 +23,9 @@ public class AuthRolePermissionDTO implements Serializable {
      * 权限id
      */
     private Long permissionId;
-
+    /**
+     * 权限id列表
+     */
     private List<Long> permissionIdList;
 
 }

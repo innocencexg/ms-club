@@ -25,10 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  11:16
- */
+
 @Service
 @Slf4j
 public class AuthUserDomainServiceImpl implements AuthUserDomainService {

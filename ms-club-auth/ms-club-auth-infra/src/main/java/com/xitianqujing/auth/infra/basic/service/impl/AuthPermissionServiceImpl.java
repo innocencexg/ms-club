@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * (AuthPermission)表服务实现类
- *
- * @author gx
- * @since 2024-02-26 14:23:27
  */
 @Service("authPermissionService")
 public class AuthPermissionServiceImpl implements AuthPermissionService {

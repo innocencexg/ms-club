@@ -1,12 +1,11 @@
 package com.xitianqujing.auth.application.context;
+
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 登录上下文对象
- * @Author: gx
- * @CreateTime: 2024/03/02  00:39
  */
 public class LoginContextHolder {
 
@@ -18,16 +17,16 @@ public class LoginContextHolder {
         map.put(key, val);
     }
 
-    public static Object get(String key){
+    public static Object get(String key) {
         Map<String, Object> threadLocalMap = getThreadLocalMap();
         return threadLocalMap.get(key);
     }
 
-    public static String getLoginId(){
+    public static String getLoginId() {
         return (String) getThreadLocalMap().get("loginId");
     }
 
-    public static void remove(){
+    public static void remove() {
         THREAD_LOCAL.remove();
     }
 

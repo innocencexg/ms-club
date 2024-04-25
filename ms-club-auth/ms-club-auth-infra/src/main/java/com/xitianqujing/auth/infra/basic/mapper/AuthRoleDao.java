@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * (AuthRole)表数据库访问层
- *
- * @author gx
- * @since 2024-02-26 10:53:50
  */
 public interface AuthRoleDao {
 

@@ -5,8 +5,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 登录上下文对象
- * @Author: gx
- * @CreateTime: 2024/03/02  00:39
  */
 public class LoginContextHolder {
 

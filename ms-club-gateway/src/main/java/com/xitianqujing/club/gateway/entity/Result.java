@@ -18,7 +18,7 @@ public class Result<T> {
 
     private T data;
 
-    public static Result ok(){
+    public static Result ok() {
         Result result = new Result();
         result.setSuccess(true);
         result.setCode(ResultCodeEnum.SUCCESS.getCode());
@@ -26,7 +26,7 @@ public class Result<T> {
         return result;
     }
 
-    public static <T>Result ok(T data){
+    public static <T> Result ok(T data) {
         Result result = new Result();
         result.setSuccess(true);
         result.setCode(ResultCodeEnum.SUCCESS.getCode());
@@ -35,7 +35,7 @@ public class Result<T> {
         return result;
     }
 
-    public static Result fail(){
+    public static Result fail() {
         Result result = new Result();
         result.setSuccess(true);
         result.setCode(ResultCodeEnum.FAIL.getCode());
@@ -43,7 +43,7 @@ public class Result<T> {
         return result;
     }
 
-    public static <T>Result fail(T data){
+    public static <T> Result fail(T data) {
         Result result = new Result();
         result.setSuccess(true);
         result.setCode(ResultCodeEnum.FAIL.getCode());
@@ -51,7 +51,8 @@ public class Result<T> {
         result.setData(data);
         return result;
     }
-    public static Result fail(Integer code,String message) {
+
+    public static Result fail(Integer code, String message) {
         Result result = new Result();
         result.setSuccess(false);
         result.setCode(code);

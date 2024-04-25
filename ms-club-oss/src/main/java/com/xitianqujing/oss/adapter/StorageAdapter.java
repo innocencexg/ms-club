@@ -51,5 +51,4 @@ public interface StorageAdapter {
     String getUrl(String bucket, String objectName);
 
 
-
 }

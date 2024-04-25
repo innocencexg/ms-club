@@ -5,8 +5,6 @@ import com.xitianqujing.auth.domain.entity.AuthUserBO;
 
 /**
  * 用户领域service
- * @Author: gx
- * @CreateTime: 2024/02/26  11:15
  */
 public interface AuthUserDomainService {
     /**
@@ -16,8 +14,6 @@ public interface AuthUserDomainService {
 
     /**
      * 更新用户信息
-     * @param authUserBO
-     * @return
      */
     Object update(AuthUserBO authUserBO);
 
@@ -26,14 +22,14 @@ public interface AuthUserDomainService {
      */
     Boolean delete(AuthUserBO authUserBO);
 
-
     /**
      * 登录验证
-     * @param validCode
-     * @return
      */
     SaTokenInfo doLogin(String validCode);
 
+    /**
+     * 获取用户信息
+     */
     AuthUserBO getUserInfo(AuthUserBO authUserBO);
 
 

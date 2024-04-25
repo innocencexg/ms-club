@@ -6,14 +6,11 @@ import java.io.Serializable;
 
 /**
  * (AuthPermission)bo
- *
- * @author gx
- * @since 2024-02-26 14:23:27
  */
 @Data
 public class AuthPermissionBO implements Serializable {
     private static final long serialVersionUID = 868516690133681746L;
-    
+
     private Long id;
     /**
      * 权限名称

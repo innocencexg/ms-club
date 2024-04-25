@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 题目信息表(SubjectInfo)实体类
- *
- * @author gx
- * @since 2024-02-14 16:14:20
  */
 @Data
 public class SubjectInfo implements Serializable {

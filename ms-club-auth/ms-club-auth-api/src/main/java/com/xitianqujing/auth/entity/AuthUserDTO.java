@@ -2,10 +2,7 @@ package com.xitianqujing.auth.entity;
 
 import lombok.Data;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  11:03
- */
+
 @Data
 public class AuthUserDTO {
     /**

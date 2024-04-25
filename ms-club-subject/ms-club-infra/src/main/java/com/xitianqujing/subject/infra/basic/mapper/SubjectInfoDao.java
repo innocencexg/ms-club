@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 题目信息表(SubjectInfo)表数据库访问层
- *
- * @author gx
- * @since 2024-02-14 16:14:19
  */
 public interface SubjectInfoDao {
 

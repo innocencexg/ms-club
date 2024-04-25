@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 单选题信息表(SubjectRadio)实体类
- *
- * @author gx
- * @since 2024-02-14 16:17:03
  */
 @Data
 public class SubjectRadio implements Serializable {

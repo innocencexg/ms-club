@@ -9,8 +9,6 @@ import java.util.List;
 
 /**
  * 阿里云oss适配器
- * @Author: gx
- * @CreateTime: 2024/02/21  23:23
  */
 public class AliStorageAdapter implements StorageAdapter {
     @Override

@@ -12,10 +12,6 @@ import javax.annotation.Resource;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  14:47
- */
 @Service
 @Slf4j
 public class AuthRolePermissionDomainServiceImpl implements AuthRolePermissionDomainService {

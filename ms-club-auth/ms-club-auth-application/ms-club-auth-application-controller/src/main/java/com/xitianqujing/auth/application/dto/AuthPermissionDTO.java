@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * (AuthPermission)dto
- *
- * @author gx
- * @since 2024-02-26 14:23:27
  */
 @Data
 public class AuthPermissionDTO implements Serializable {

@@ -1,14 +1,13 @@
 package com.xitianqujing.auth.infra.basic.entity;
 
 import java.util.Date;
+
 import lombok.Data;
+
 import java.io.Serializable;
 
 /**
  * 用户信息表(AuthUser)实体类
- *
- * @author gx
- * @since 2024-02-26 11:07:20
  */
 @Data
 public class AuthUser implements Serializable {

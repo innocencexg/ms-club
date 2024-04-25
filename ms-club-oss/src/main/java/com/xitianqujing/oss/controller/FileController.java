@@ -12,15 +12,13 @@ import java.util.List;
 
 /**
  * 文件操作类controller
- * @Author: gx
- * @CreateTime: 2024/02/21  22:59
  */
 @RestController
 public class FileController {
     @Resource
     private FileService fileService;
 
-    @NacosValue(value = "${storage.service.type}",autoRefreshed = true)
+    @NacosValue(value = "${storage.service.type}", autoRefreshed = true)
     private String storageType;
 
 

@@ -18,10 +18,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  14:29
- */
 @Service
 @Slf4j
 public class AuthPermissionDomainServiceImpl implements AuthPermissionDomainService {

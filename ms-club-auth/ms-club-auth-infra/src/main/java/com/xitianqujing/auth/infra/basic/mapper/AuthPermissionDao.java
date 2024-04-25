@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * (AuthPermission)表数据库访问层
- *
- * @author gx
- * @since 2024-02-26 14:23:26
  */
 public interface AuthPermissionDao {
 

@@ -2,8 +2,6 @@ package com.xitianqujing.auth.common.entity;
 
 /**
  * 分页请求实体
- * @Author: gx
- * @CreateTime: 2024/02/19  15:56
  */
 public class PageInfo {
 

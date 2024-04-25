@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 
-
 @Service
 public class FileService {
     private final StorageAdapter storageAdapter;
@@ -26,15 +25,15 @@ public class FileService {
     /**
      * 获取文件路径
      */
-    public String getUrl(String bucketName,String objectName) {
-        return storageAdapter.getUrl(bucketName,objectName);
+    public String getUrl(String bucketName, String objectName) {
+        return storageAdapter.getUrl(bucketName, objectName);
     }
 
     /**
      * 上传文件
      */
-    public String uploadFile(MultipartFile uploadFile, String bucket, String objectName){
-        storageAdapter.uploadFile(uploadFile,bucket,objectName);
+    public String uploadFile(MultipartFile uploadFile, String bucket, String objectName) {
+        storageAdapter.uploadFile(uploadFile, bucket, objectName);
         objectName = objectName + "/" + uploadFile.getOriginalFilename();
         return storageAdapter.getUrl(bucket, objectName);
     }

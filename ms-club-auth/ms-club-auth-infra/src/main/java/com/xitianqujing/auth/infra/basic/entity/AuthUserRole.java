@@ -1,14 +1,13 @@
 package com.xitianqujing.auth.infra.basic.entity;
 
 import java.util.Date;
+
 import lombok.Data;
+
 import java.io.Serializable;
 
 /**
  * 用户角色表(AuthUserRole)实体类
- *
- * @author gx
- * @since 2024-02-26 14:06:03
  */
 @Data
 public class AuthUserRole implements Serializable {
@@ -41,7 +40,9 @@ public class AuthUserRole implements Serializable {
      * 更新时间
      */
     private Date updateTime;
-    
+    /**
+     * 是否删除
+     */
     private Integer isDeleted;
 
 

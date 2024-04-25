@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 简答题(SubjectBrief)表数据库访问层
- *
- * @author gx
- * @since 2024-02-14 16:15:19
  */
 public interface SubjectBriefDao {
 

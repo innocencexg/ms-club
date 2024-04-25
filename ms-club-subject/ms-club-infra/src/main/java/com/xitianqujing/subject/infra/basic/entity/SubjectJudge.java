@@ -7,9 +7,6 @@ import java.util.Date;
 
 /**
  * 判断题(SubjectJudge)实体类
- *
- * @author gx
- * @since 2024-02-14 16:15:49
  */
 @Data
 public class SubjectJudge implements Serializable {
