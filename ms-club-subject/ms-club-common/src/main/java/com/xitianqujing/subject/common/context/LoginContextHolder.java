@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class LoginContextHolder {
 
+
     private static final InheritableThreadLocal<Map<String, Object>> THREAD_LOCAL
             = new InheritableThreadLocal<>();
 

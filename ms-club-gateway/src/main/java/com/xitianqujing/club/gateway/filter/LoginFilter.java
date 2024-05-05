@@ -28,7 +28,7 @@ public class LoginFilter implements GlobalFilter {
         ServerHttpRequest.Builder mutate = request.mutate();
         String url = request.getURI().getPath();
         log.info("LoginFilter.filter.url:{}", url);
-        if (url.equals("/user/doLogin")) {
+        if (url.equals("/user/doLogin")||url.equals("/auth/user/getUserInfo")) {
             return chain.filter(exchange);
         }
         SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
@@ -37,6 +37,7 @@ public class LoginFilter implements GlobalFilter {
         mutate.header("loginId", loginId);
         return chain.filter(exchange.mutate().request(mutate.build()).build());
     }
+
 
 
 }

@@ -18,6 +18,7 @@ import java.util.List;
 @Configuration
 public class GlobalConfig extends WebMvcConfigurationSupport {
 
+
     @Override
     protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         super.configureMessageConverters(converters);
@@ -40,6 +41,8 @@ public class GlobalConfig extends WebMvcConfigurationSupport {
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         return new MappingJackson2HttpMessageConverter(objectMapper);
     }
+
+
 
 
 }

@@ -1,6 +1,5 @@
-package com.xitianqujing.auth.application.interceptor;
-
-import com.xitianqujing.auth.application.context.LoginContextHolder;
+package com.xitianqujing.subject.application.interceptor;
+import com.xitianqujing.subject.common.context.LoginContextHolder;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -10,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 登录拦截器
+ * @Author: gx
+ * @CreateTime: 2024/03/02  00:37
  */
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
@@ -25,6 +26,5 @@ public class LoginInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
         LoginContextHolder.remove();
     }
-
 
 }
