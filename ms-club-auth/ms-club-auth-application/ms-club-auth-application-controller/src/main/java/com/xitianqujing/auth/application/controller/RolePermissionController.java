@@ -23,6 +23,7 @@ import javax.annotation.Resource;
 @Slf4j
 public class RolePermissionController {
 
+
     @Resource
     private AuthRolePermissionDomainService authRolePermissionDomainService;
 

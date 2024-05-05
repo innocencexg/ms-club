@@ -2,6 +2,7 @@ package com.xitianqujing.subject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.mybatis.spring.annotation.MapperScan;
 /**
@@ -12,6 +13,7 @@ import org.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @ComponentScan("com.xitianqujing")
 @MapperScan("com.xitianqujing.**.mapper")
+@EnableFeignClients(basePackages = "com.xitianqujing")
 public class SubjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(SubjectApplication.class);

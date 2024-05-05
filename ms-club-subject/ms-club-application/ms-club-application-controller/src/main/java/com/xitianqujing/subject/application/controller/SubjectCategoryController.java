@@ -33,6 +33,8 @@ public class SubjectCategoryController {
 
     /**
      * 新增题目分类
+     * @param subjectCategoryDTO
+     * @return
      */
     @PostMapping("/add")
     public Result<Boolean> add(@RequestBody SubjectCategoryDTO subjectCategoryDTO){
@@ -74,6 +76,8 @@ public class SubjectCategoryController {
 
     /**
      * 查询大类下的分类
+     * @param subjectCategoryDTO
+     * @return
      */
     @PostMapping("/queryCategoryByPrimary")
     public Result<List<SubjectCategoryDTO>> queryCategoryByPrimary(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
@@ -88,12 +92,13 @@ public class SubjectCategoryController {
             return Result.ok(subjectCategoryDTOList);
         }catch (Exception e){
             log.error("SubjectCategoryController.queryPrimaryCategory.error:{}",e.getMessage(),e);
-            return Result.fail("查询失败！");
+            return Result.fail("查询失败");
         }
     }
 
     /**
      * 更新分类
+     * @return
      */
     @PostMapping("/update")
     public Result<List<Boolean>> update(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
@@ -106,12 +111,14 @@ public class SubjectCategoryController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectCategoryController.update.error:{}",e.getMessage(),e);
-            return Result.fail("更新分类失败！");
+            return Result.fail("更新分类失败");
         }
     }
 
     /**
      * 删除分类
+     * @param subjectCategoryDTO
+     * @return
      */
     @PostMapping("/delete")
     public Result<List<Boolean>> delete(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
@@ -119,13 +126,12 @@ public class SubjectCategoryController {
             if(log.isInfoEnabled()){
                 log.info("SubjectCategoryController.delete.dto:{}", JSON.toJSONString(subjectCategoryDTO));
             }
-
             SubjectCategoryBO subjectCategoryBO  = SubjectCategoryDTOConvert.INSTANT.convertDtoToCategoryBO(subjectCategoryDTO);
             Boolean result = subjectCategoryDomainService.delete(subjectCategoryBO);
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectCategoryController.delete.error:{}",e.getMessage(),e);
-            return Result.fail("删除分类失败！");
+            return Result.fail("删除分类失败");
         }
     }
 
@@ -154,7 +160,8 @@ public class SubjectCategoryController {
             return Result.ok(dtoList);
         } catch (Exception e) {
             log.error("SubjectCategoryController.queryPrimaryCategory.error:{}", e.getMessage(), e);
-            return Result.fail("查询失败！");
+            return Result.fail("查询失败");
         }
     }
+
 }

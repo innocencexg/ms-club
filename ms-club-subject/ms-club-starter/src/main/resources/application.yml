@@ -48,9 +48,32 @@ spring:
         # 连接池中的最大空闲连接
         max-idle: 10
         # 连接池中的最小空闲连接
+
 publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI0OtFe6vbXxW1M6/15LMm7/ElvZIfralWLXLeZ1p93wxmND/mKM5ibfsz3idMOJ9tSQLOYhY4K/X7EcsEXjWhECAwEAAQ==
 logging:
   config: classpath:log4j2-spring.xml
+
+es:
+  cluster:
+    esConfigs[0]:
+      name: 410767cf0cec
+      nodes: 117.72.15.18:9200
+
+
+xxl:
+  job:
+    admin:
+      enable: true
+      addresses: http://117.72.15.198:8090/xxl-job-admin
+
+    accessToken: default_token
+    executor:
+      appname: cp-club-subjcet
+      address:
+      ip:
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
 
 #可以知道数据库详细的查询信息
 #mybatis-plus:

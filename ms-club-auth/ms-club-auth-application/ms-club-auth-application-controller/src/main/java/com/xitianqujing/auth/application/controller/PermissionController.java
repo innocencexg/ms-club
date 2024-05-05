@@ -25,6 +25,7 @@ public class PermissionController {
     @Resource
     private AuthPermissionDomainService authPermissionDomainService;
 
+
     /**
      * 新增权限
      */
@@ -94,6 +95,5 @@ public class PermissionController {
             return Result.fail("查询用户权限信息失败");
         }
     }
-
 }
 
