@@ -3,6 +3,7 @@ package com.xitianqujing.subject.domain.service;
 
 import com.xitianqujing.subject.common.entity.PageResult;
 import com.xitianqujing.subject.domain.entity.SubjectInfoBO;
+import com.xitianqujing.subject.infra.basic.entity.SubjectInfoEs;
 
 import java.util.List;
 
@@ -31,5 +32,11 @@ public interface SubjectInfoDomainService {
      */
     SubjectInfoBO querySubjectInfo(SubjectInfoBO subjectInfoBO);
 
+    /**
+     * 全文检索
+     */
+    PageResult<SubjectInfoEs> getSubjectPageBySearch(SubjectInfoBO subjectInfoBO);
+
+    List<SubjectInfoBO> getContributeList();
 }
 

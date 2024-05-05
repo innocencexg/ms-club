@@ -81,5 +81,19 @@ public class SubjectInfoServiceImpl implements SubjectInfoService {
     public List<SubjectInfo> quertPage(SubjectInfo subjectInfo, Long categoryId, Long labelId, int start, Integer pageSize) {
         return this.subjectInfoDao.quertPage(subjectInfo,categoryId,labelId,start,pageSize);
     }
+    @Override
+    public List<SubjectInfo> getContributeCount() {
+        return this.subjectInfoDao.getContributeCount();
+    }
+
+    @Override
+    public String getUserName(String nickname){
+        return this.subjectInfoDao.getUserName(nickname);
+    }
+
+    @Override
+    public Long querySubjectIdCursor(Long subjectId, Long categoryId, Long labelId, int cursor) {
+        return this.subjectInfoDao.querySubjectIdCursor(subjectId, categoryId, labelId, cursor);
+    }
 
 }

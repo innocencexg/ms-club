@@ -55,4 +55,9 @@ public interface SubjectInfoService {
 
     List<SubjectInfo> quertPage(SubjectInfo subjectInfo, Long categoryId, Long labelId, int start, Integer pageSize);
 
+    List<SubjectInfo> getContributeCount();
+
+    String getUserName(String nickname);
+
+    Long querySubjectIdCursor(Long subjectId, Long categoryId, Long labelId, int i);
 }

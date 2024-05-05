@@ -78,5 +78,13 @@ public interface SubjectInfoDao {
                                 @Param("pageSize") Integer pageSize);
 
     List<SubjectInfo> getContributeCount();
+
+    String getUserName(String nickname);
+
+    Long querySubjectIdCursor(@Param("subjectId") Long subjectId,
+                              @Param("categoryId") Long categoryId,
+                              @Param("labelId") Long labelId,
+                              @Param("cursor") int cursor);
+
 }
 
