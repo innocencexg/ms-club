@@ -19,6 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 
+/**
+ * @Author: gx
+ * @CreateTime: 2024/02/25  21:32
+ */
+
 @RestController
 @RequestMapping("/user/")
 @Slf4j
@@ -51,7 +56,6 @@ public class UserController {
             return Result.fail("注册用户失败");
         }
     }
-
     /**
      * 修改用户信息
      */
@@ -63,28 +67,12 @@ public class UserController {
             }
             checkUserInfo(authUserDTO);
             AuthUserBO authUserBO = AuthUserDTOConverter.INSTANCE.convertDTOToBO(authUserDTO);
+            Long id =authUserDomainService.getUserInfo(authUserBO).getId();
+            authUserBO.setId(id);
             return Result.ok(authUserDomainService.update(authUserBO));
         } catch (Exception e) {
             log.error("UserController.update.error:{}", e.getMessage(), e);
             return Result.fail("更新用户信息失败");
-        }
-    }
-
-    /**
-     * 删除用户
-     */
-    @RequestMapping("delete")
-    public Result<Boolean> delete(@RequestBody AuthUserDTO authUserDTO) {
-        try {
-            if (log.isInfoEnabled()) {
-                log.info("UserController.delete.dto:{}", JSON.toJSONString(authUserDTO));
-            }
-            AuthUserBO authUserBO = AuthUserDTOConverter.INSTANCE.convertDTOToBO(authUserDTO);
-            return Result.ok(authUserDomainService.delete(authUserBO));
-        } catch (Exception e) {
-
-            log.error("UserController.update.error:{}", e.getMessage(), e);
-            return Result.fail("删除用户信息失败");
         }
     }
 
@@ -107,6 +95,38 @@ public class UserController {
         }
     }
 
+    /**
+     * 用户退出
+     */
+    @RequestMapping("logOut")
+    public Result logOut(@RequestParam String userName) {
+        try {
+            log.info("UserController.logOut.userName:{}", userName);
+            Preconditions.checkArgument(!StringUtils.isBlank(userName), "用户名不能为空");
+            StpUtil.logout(userName);
+            return Result.ok();
+        } catch (Exception e) {
+            log.error("UserController.logOut.error:{}", e.getMessage(), e);
+            return Result.fail("用户登出失败");
+        }
+    }
+
+    /**
+     * 删除用户
+     */
+    @RequestMapping("delete")
+    public Result<Boolean> delete(@RequestBody AuthUserDTO authUserDTO) {
+        try {
+            if (log.isInfoEnabled()) {
+                log.info("UserController.delete.dto:{}", JSON.toJSONString(authUserDTO));
+            }
+            AuthUserBO authUserBO = AuthUserDTOConverter.INSTANCE.convertDTOToBO(authUserDTO);
+            return Result.ok(authUserDomainService.update(authUserBO));
+        } catch (Exception e) {
+            log.error("UserController.update.error:{}", e.getMessage(), e);
+            return Result.fail("删除用户信息失败");
+        }
+    }
 
     /**
      * 用户启用/禁用
@@ -126,24 +146,6 @@ public class UserController {
         }
     }
 
-
-    /**
-     * 用户退出
-     */
-    @RequestMapping("logOut")
-    public Result logOut(@RequestParam String userName) {
-        try {
-            log.info("UserController.logOut.userName:{}", userName);
-            Preconditions.checkArgument(!StringUtils.isBlank(userName), "用户名不能为空");
-            StpUtil.logout(userName);
-            return Result.ok();
-        } catch (Exception e) {
-            log.error("UserController.logOut.error:{}", e.getMessage(), e);
-            return Result.fail("用户登出失败");
-        }
-    }
-
-
     // 测试登录，浏览器访问： http://localhost:3011/user/doLogin?username=zhang&password=123456
     @RequestMapping("doLogin")
     public Result<SaTokenInfo> doLogin(@RequestParam("validCode") String validCode) {
@@ -156,21 +158,10 @@ public class UserController {
         }
     }
 
-//    @RequestMapping("doLogin")
-//    public SaResult doLogin() {
-//        // 第1步，先登录上
-//        StpUtil.login(10001);
-//        // 第2步，获取 Token  相关参数
-//        SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
-//        // 第3步，返回给前端
-//        return SaResult.data(tokenInfo);
-//    }
-
 
     // 查询登录状态，浏览器访问： http://localhost:3011/user/isLogin
     @RequestMapping("isLogin")
     public String isLogin() {
         return "当前会话是否登录：" + StpUtil.isLogin();
     }
-
 }

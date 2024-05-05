@@ -27,6 +27,7 @@ public class SubjectLabelController {
     @Resource
     private SubjectLabelDomainService subjectLabelDomainService;
 
+
     /**
      * 新增标签
      * @param subjectLabelDTO
@@ -38,13 +39,13 @@ public class SubjectLabelController {
             if(log.isInfoEnabled()){
                 log.info("SubjectLabelController.add.dto:{}", JSON.toJSONString(subjectLabelDTO));
             }
-            Preconditions.checkArgument(!StringUtils.isBlank(subjectLabelDTO.getLabelName()), "标签名称不能为空！");
+            Preconditions.checkArgument(!StringUtils.isBlank(subjectLabelDTO.getLabelName()), "标签名称不能为空");
             SubjectLabelBO subjectLabelBO = SubjectLabelDTOConvert.INSTANT.convertDtoToLabelBO(subjectLabelDTO);
             Boolean result = subjectLabelDomainService.add(subjectLabelBO);
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectLabelController.add.error:{}", e.getMessage(), e);
-            return Result.fail("新增标签失败！");
+            return Result.fail("新增标签失败");
         }
     }
 
@@ -64,7 +65,7 @@ public class SubjectLabelController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectLabelController.update.error:{}", e.getMessage(), e);
-            return Result.fail("更新标签失败！");
+            return Result.fail("更新标签失败");
         }
     }
 
@@ -85,7 +86,7 @@ public class SubjectLabelController {
             return Result.ok(result);
         }catch (Exception e){
             log.error("SubjectLabelController.delete.error:{}", e.getMessage(), e);
-            return Result.fail("删除标签失败！");
+            return Result.fail("删除标签失败");
         }
     }
 
@@ -101,7 +102,6 @@ public class SubjectLabelController {
                 log.info("SubjectLabelController.queryLabelByCategoryId.dto:{}",
                         JSON.toJSONString(subjectLabelDTO));
             }
-
             Preconditions.checkNotNull(subjectLabelDTO.getCategoryId(), "分类id不能为空");
             SubjectLabelBO subjectLabelBO = SubjectLabelDTOConvert.INSTANT.convertDtoToLabelBO(subjectLabelDTO);
             List<SubjectLabelBO> resultList = subjectLabelDomainService.queryLabelByCategoryId(subjectLabelBO);
@@ -109,7 +109,7 @@ public class SubjectLabelController {
             return Result.ok(subjectLabelDTOS);
         }catch (Exception e){
             log.error("SubjectLabelController.queryLabelByCategoryId.error:{}", e.getMessage(), e);
-            return Result.fail("查询分类下标签失败！");
+            return Result.fail("查询分类下标签失败");
         }
     }
 
