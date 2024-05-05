@@ -1,4 +1,4 @@
-package com.xitianqujing.subject.infra.basic.config;
+package com.xitianqujing.subject.infra.config;
 
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
@@ -12,10 +12,12 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-/**
- * 数据库语句拦截器
- */
+//实现一个 MyBatis 拦截器，用于记录 SQL 执行时间的信息，并输出到日志中，以便开发人员监控 SQL 执行的性能。
 
+/**
+ * @Author: gx
+ * @CreateTime: 2024/02/19  22:34
+ */
 @Intercepts({
         @Signature(type = Executor.class, method = "update", args = {MappedStatement.class,
                 Object.class}),
@@ -53,3 +55,4 @@ public class SqlStatementInterceptor implements Interceptor {
 
     }
 }
+

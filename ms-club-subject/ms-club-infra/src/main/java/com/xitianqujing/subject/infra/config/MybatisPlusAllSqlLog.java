@@ -1,4 +1,5 @@
-package com.xitianqujing.subject.infra.basic.config;
+package com.xitianqujing.subject.infra.config;
+
 
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import org.apache.ibatis.executor.Executor;
@@ -21,8 +22,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 
+//实现一个 MyBatis Plus 内部拦截器，用于记录 SQL 执行相关的信息，并输出到日志中
+
 /**
- * 解析sql日志
+ * @Author: gx
+ * @CreateTime: 2024/02/19  22:35
  */
 public class MybatisPlusAllSqlLog implements InnerInterceptor {
     public static final Logger log = LoggerFactory.getLogger("sys-sql");
@@ -117,3 +121,4 @@ public class MybatisPlusAllSqlLog implements InnerInterceptor {
     }
 
 }
+
