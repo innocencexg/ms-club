@@ -57,7 +57,7 @@ logging:
   data:
     elasticsearch:
       cluster-name: docker-cluster
-      cluster-nodes: 117.72.15.18:9200
+      cluster-nodes: 117.72.15.18:9300
   elasticsearch:
     rest:
       uris: [ "117.72.15.18:9200" ]
