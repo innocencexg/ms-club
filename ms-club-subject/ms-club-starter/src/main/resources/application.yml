@@ -59,16 +59,16 @@ logging:
       cluster-name: docker-cluster
       cluster-nodes: 117.72.15.18:9200
 
+management:
+  health:
+    elasticsearch:
+      enabled: false
 #es:
 #  cluster:
 #    esConfigs[0]:
 #      name: 410767cf0cec
 #      nodes: 117.72.15.18:9200
 #
-#management:
-#  health:
-#    elasticsearch:
-#      enabled: false
 
 
 xxl:
