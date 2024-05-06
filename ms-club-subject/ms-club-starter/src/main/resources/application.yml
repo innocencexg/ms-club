@@ -63,14 +63,13 @@ es:
 xxl:
   job:
     admin:
-      enable: true
       addresses: http://117.72.15.198:8090/xxl-job-admin
 
     accessToken: default_token
     executor:
-      appname: cp-club-subjcet
+      appname: ms-club-subjcet
       address:
-      ip:
+      ip: 117.72.15.198
       port: 9999
       logpath: /data/applogs/xxl-job/jobhandler
       logretentiondays: 30
