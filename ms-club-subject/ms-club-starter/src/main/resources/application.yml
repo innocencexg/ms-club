@@ -58,7 +58,10 @@ logging:
     elasticsearch:
       cluster-name: docker-cluster
       cluster-nodes: 117.72.15.18:9200
-
+  elasticsearch:
+    rest:
+      uris: [ "117.72.15.18:9200" ]
+      connection-timeout: 10s
 management:
   health:
     elasticsearch:
