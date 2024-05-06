@@ -59,7 +59,6 @@ es:
       name: 410767cf0cec
       nodes: 117.72.15.18:9200
 
-
 xxl:
   job:
     admin:
