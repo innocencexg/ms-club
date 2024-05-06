@@ -54,14 +54,17 @@ logging:
   config: classpath:log4j2-spring.xml
 
 
-  data:
-    elasticsearch:
-      cluster-name: docker-cluster
-      cluster-nodes: 117.72.15.18:9200
   elasticsearch:
     rest:
-      uris: [ "117.72.15.18:9200" ]
+      uris: [ "117.72.15.198:9200" ]
       connection-timeout: 10s
+
+es:
+  cluster:
+    esConfigs[0]:
+      name: 410767cf0cec
+      nodes: 117.72.15.198:9200
+
 management:
   health:
     elasticsearch:
