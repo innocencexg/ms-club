@@ -53,7 +53,6 @@ publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI0OtFe6vbXxW1M6/15LMm7/ElvZIfralWLXL
 logging:
   config: classpath:log4j2-spring.xml
 
-
   elasticsearch:
     rest:
       uris: [ "117.72.15.198:9200" ]
