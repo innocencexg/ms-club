@@ -59,6 +59,12 @@ es:
       name: 410767cf0cec
       nodes: 117.72.15.18:9200
 
+management:
+  health:
+    elasticsearch:
+      enabled: false
+
+
 xxl:
   job:
     admin:
