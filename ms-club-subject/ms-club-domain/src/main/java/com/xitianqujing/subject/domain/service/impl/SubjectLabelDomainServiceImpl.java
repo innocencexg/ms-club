@@ -99,4 +99,11 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
         return boList;
     }
 
+    @Override
+    public List<SubjectLabelBO> queryLabel() {
+        List<SubjectLabel> labelList = subjectLabelService.queryLabel();
+        List<SubjectLabelBO> labelResultList = SubjectLabelConvert.INSTANT.convertLabelToBoList(labelList);
+        return labelResultList;
+    }
+
 }

@@ -82,4 +82,9 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
     public List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel) {
         return this.subjectLabelDao.queryByCondition(subjectLabel);
     }
+
+    @Override
+    public List<SubjectLabel> queryLabel( ) {
+        return this.subjectLabelDao.queryLabel();
+    }
 }

@@ -57,4 +57,7 @@ public interface SubjectLabelService {
      * @return
      */
     List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel);
+
+
+    List<SubjectLabel> queryLabel();
 }

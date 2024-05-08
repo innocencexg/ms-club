@@ -36,5 +36,8 @@ public interface SubjectLabelDomainService {
      * @return
      */
     List<SubjectLabelBO> queryLabelByCategoryId(SubjectLabelBO subjectLabelBO);
+
+    List<SubjectLabelBO> queryLabel();
 }
+
 

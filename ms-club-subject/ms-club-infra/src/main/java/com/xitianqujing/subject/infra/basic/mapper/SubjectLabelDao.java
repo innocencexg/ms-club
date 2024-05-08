@@ -26,6 +26,7 @@ public interface SubjectLabelDao {
      */
     List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel);
 
+    List<SubjectLabel> queryLabel();
 
     /**
      * 统计总行数

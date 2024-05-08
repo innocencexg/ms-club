@@ -57,7 +57,12 @@
             </if>
         </where>
     </select>
-
+    <!--查询指定行数据-->
+    <select id="queryLabel" resultMap="SubjectLabelMap">
+        select
+        id, label_name, sort_num, created_by, created_time, update_by, is_deleted, update_time
+        from subject_label
+    </select>
 
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">

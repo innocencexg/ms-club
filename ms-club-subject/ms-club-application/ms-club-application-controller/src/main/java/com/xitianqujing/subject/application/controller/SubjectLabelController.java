@@ -113,4 +113,19 @@ public class SubjectLabelController {
         }
     }
 
+    /**
+     * 查询所有小标签
+     */
+    @PostMapping("/queryLabel")
+    public Result<List<SubjectLabelDTO>> queryLabel(){
+        try {
+            List<SubjectLabelBO> resultList = subjectLabelDomainService.queryLabel();
+            List<SubjectLabelDTO> subjectLabelDTOS = SubjectLabelDTOConvert.INSTANT.convertBOToLabelDTOList(resultList);
+            return Result.ok(subjectLabelDTOS);
+        }catch (Exception e){
+            log.error("SubjectLabelController.queryLabelByCategoryId.error:{}", e.getMessage(), e);
+            return Result.fail("查询分类下标签失败");
+        }
+    }
+
 }
