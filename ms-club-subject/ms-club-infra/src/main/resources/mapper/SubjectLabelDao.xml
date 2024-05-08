@@ -61,7 +61,8 @@
     <select id="queryLabel" resultMap="SubjectLabelMap">
         select
         id, label_name, sort_num, created_by, created_time, update_by, is_deleted, update_time
-        from subject_label
+        from subject_label where id &lt; 30
+
     </select>
 
     <!--统计总行数-->
