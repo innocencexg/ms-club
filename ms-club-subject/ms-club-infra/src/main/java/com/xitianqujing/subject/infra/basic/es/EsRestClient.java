@@ -110,6 +110,7 @@ public class EsRestClient {
         return false;
     }
 
+
     public static boolean updateDoc(EsIndexInfo esIndexInfo, EsSourceData esSourceData) {
         try {
             UpdateRequest updateRequest = new UpdateRequest();

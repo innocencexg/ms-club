@@ -13,6 +13,6 @@ public interface PracticeSetDao {
 
     PracticeSetPO selectById(Long setId);
 
-
+    int updateHeat(Long setId);
 
 }
