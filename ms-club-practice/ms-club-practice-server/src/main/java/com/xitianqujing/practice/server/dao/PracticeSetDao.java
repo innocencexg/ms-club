@@ -1,4 +1,5 @@
 package com.xitianqujing.practice.server.dao;
+import com.xitianqujing.practice.server.entity.dto.PracticeSetDTO;
 import com.xitianqujing.practice.server.entity.po.PracticeSetPO;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,5 +15,16 @@ public interface PracticeSetDao {
     PracticeSetPO selectById(Long setId);
 
     int updateHeat(Long setId);
+    /**
+     * 获取模拟考卷列表数量
+     */
+    Integer getListCount(PracticeSetDTO dto);
+
+    /**
+     * 获取模拟考卷列表
+     */
+    List<PracticeSetPO> getSetList(@Param("dto") PracticeSetDTO dto,
+                                   @Param("limit") int limit,
+                                   @Param("offset") int offset);
 
 }

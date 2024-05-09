@@ -2,11 +2,14 @@ package com.xitianqujing.practice.server.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Preconditions;
+import com.xitianqujing.practice.api.common.PageResult;
 import com.xitianqujing.practice.api.common.Result;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectListReq;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectReq;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectsReq;
+import com.xitianqujing.practice.api.req.GetPreSetReq;
 import com.xitianqujing.practice.api.vo.*;
+import com.xitianqujing.practice.server.entity.dto.PracticeSetDTO;
 import com.xitianqujing.practice.server.entity.dto.PracticeSubjectDTO;
 import com.xitianqujing.practice.server.service.PracticeDetailService;
 import com.xitianqujing.practice.server.service.PracticeSetService;
@@ -140,6 +143,34 @@ public class PracticeSetController {
     }
 
 
+
+    /**
+     * 获取模拟套题内容
+     */
+    @PostMapping(value = "/getPreSetContent")
+    public Result<PageResult<PracticeSetVO>> getPreSetContent(@RequestBody GetPreSetReq req) {
+        if (log.isInfoEnabled()) {
+            log.info("获取模拟套题内容入参{}", JSON.toJSONString(req));
+        }
+        try {
+            Preconditions.checkArgument(!Objects.isNull(req), "参数不能为空！");
+            PracticeSetDTO dto = new PracticeSetDTO();
+            dto.setOrderType(req.getOrderType());
+            dto.setPageInfo(req.getPageInfo());
+            dto.setSetName(req.getSetName());
+            PageResult<PracticeSetVO> list = practiceSetService.getPreSetContent(dto);
+            if (log.isInfoEnabled()) {
+                log.info("获取模拟套题内容出参{}", JSON.toJSONString(list));
+            }
+            return Result.ok(list);
+        } catch (IllegalArgumentException e) {
+            log.error("参数异常！错误原因{}", e.getMessage(), e);
+            return Result.fail(e.getMessage());
+        } catch (Exception e) {
+            log.error("获取模拟套题内容异常！错误原因{}", e.getMessage(), e);
+            return Result.fail("获取模拟套题内容异常！");
+        }
+    }
 
 
 
