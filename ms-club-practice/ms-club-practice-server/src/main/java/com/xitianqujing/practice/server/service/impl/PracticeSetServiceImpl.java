@@ -1,8 +1,10 @@
 package com.xitianqujing.practice.server.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
+import com.xitianqujing.practice.api.enums.CompleteStatusEnum;
 import com.xitianqujing.practice.api.enums.IsDeletedFlagEnum;
 import com.xitianqujing.practice.api.enums.SubjectInfoTypeEnum;
+import com.xitianqujing.practice.api.req.GetPracticeSubjectsReq;
 import com.xitianqujing.practice.api.vo.*;
 import com.xitianqujing.practice.server.dao.*;
 import com.xitianqujing.practice.server.entity.dto.CategoryDTO;
@@ -13,8 +15,9 @@ import com.xitianqujing.practice.server.util.LoginUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.apache.commons.lang3.StringUtils;
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.*;
 
 @Service
@@ -33,6 +36,10 @@ public class PracticeSetServiceImpl implements PracticeSetService {
     private PracticeSetDao practiceSetDao;
     @Resource
     private SubjectDao subjectDao;
+    @Resource
+    private PracticeDetailDao practiceDetailDao;
+    @Resource
+    private PracticeDao practiceDao;
 
 
 
@@ -214,6 +221,68 @@ public class PracticeSetServiceImpl implements PracticeSetService {
         return list;
     }
 
+
+
+    @Override
+    public PracticeSubjectListVO getSubjects(GetPracticeSubjectsReq req) {
+        Long setId = req.getSetId();
+        PracticeSubjectListVO vo = new PracticeSubjectListVO();
+        List<PracticeSubjectDetailVO> practiceSubjectListVOS = new LinkedList<>();
+        List<PracticeSetDetailPO> practiceSetDetailPOS = practiceSetDetailDao.selectBySetId(setId);
+        if (CollectionUtils.isEmpty(practiceSetDetailPOS)) {
+            return vo;
+        }
+        String loginId = LoginUtil.getLoginId();
+        Long practiceId = req.getPracticeId();
+        practiceSetDetailPOS.forEach(e -> {
+            PracticeSubjectDetailVO practiceSubjectListVO = new PracticeSubjectDetailVO();
+            practiceSubjectListVO.setSubjectId(e.getSubjectId());
+            practiceSubjectListVO.setSubjectType(e.getSubjectType());
+            if (Objects.nonNull(practiceId)) {
+                PracticeDetailPO practiceDetailPO = practiceDetailDao.selectDetail(practiceId, e.getSubjectId(), loginId);
+                if (Objects.nonNull(practiceDetailPO) && StringUtils.isNotBlank(practiceDetailPO.getAnswerContent())) {
+                    practiceSubjectListVO.setIsAnswer(1);
+                } else {
+                    practiceSubjectListVO.setIsAnswer(0);
+                }
+            }
+            practiceSubjectListVOS.add(practiceSubjectListVO);
+        });
+        vo.setSubjectList(practiceSubjectListVOS);
+        PracticeSetPO practiceSetPO = practiceSetDao.selectById(setId);
+        vo.setTitle(practiceSetPO.getSetName());
+        if (Objects.isNull(practiceId)) {
+            Long newPracticeId = insertUnCompletePractice(setId);
+            vo.setPracticeId(newPracticeId);
+        } else {
+            updateUnCompletePractice(practiceId);
+            PracticePO practicePO = practiceDao.selectById(practiceId);
+            vo.setTimeUse(practicePO.getTimeUse());
+            vo.setPracticeId(practiceId);
+        }
+        return vo;
+    }
+
+    private Long insertUnCompletePractice(Long practiceSetId) {
+        PracticePO practicePO = new PracticePO();
+        practicePO.setSetId(practiceSetId);
+        practicePO.setCompleteStatus(CompleteStatusEnum.NO_COMPLETE.getCode());
+        practicePO.setTimeUse("00:00:00");
+        practicePO.setSubmitTime(new Date());
+        practicePO.setCorrectRate(new BigDecimal("0.00"));
+        practicePO.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
+        practicePO.setCreatedBy(LoginUtil.getLoginId());
+        practicePO.setCreatedTime(new Date());
+        practiceDao.insert(practicePO);
+        return practicePO.getId();
+    }
+
+    private void updateUnCompletePractice(Long practiceId) {
+        PracticePO practicePO = new PracticePO();
+        practicePO.setId(practiceId);
+        practicePO.setSubmitTime(new Date());
+        practiceDao.update(practicePO);
+    }
 
 
 }
