@@ -1,15 +1,24 @@
 package com.xitianqujing.practice.server.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.base.Preconditions;
 import com.xitianqujing.practice.api.common.Result;
+import com.xitianqujing.practice.api.req.GetPracticeSubjectListReq;
+import com.xitianqujing.practice.api.vo.PracticeSetVO;
 import com.xitianqujing.practice.api.vo.SpecialPracticeVO;
+import com.xitianqujing.practice.server.entity.dto.PracticeSubjectDTO;
 import com.xitianqujing.practice.server.service.PracticeSetService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
+import java.util.Objects;
+
 
 /**
  * 练习套卷controller
@@ -20,9 +29,15 @@ import java.util.List;
 @Slf4j
 public class PracticeSetController {
 
-    @Autowired
+
+    @Resource
     private PracticeSetService practiceSetService;
 
+
+    /**
+     * 获取专项训练
+     * @return
+     */
     @RequestMapping("getSpecialPracticeContent")
     public Result<List<SpecialPracticeVO>> getSpecialPracticeContent() {
         try {
@@ -37,5 +52,34 @@ public class PracticeSetController {
         }
 
     }
+
+    /**
+     * 开始练习
+     */
+    @PostMapping(value = "/addPractice")
+    public Result<PracticeSetVO> addPractice(@RequestBody GetPracticeSubjectListReq req) {
+        if (log.isInfoEnabled()) {
+            log.info("获取练习题入参{}", JSON.toJSONString(req));
+        }
+        try {
+            //参数校验
+            Preconditions.checkArgument(!Objects.isNull(req), "参数不能为空！");
+            Preconditions.checkArgument(!CollectionUtils.isEmpty(req.getAssembleIds()), "标签ids不能为空！");
+            PracticeSubjectDTO dto = new PracticeSubjectDTO();
+            dto.setAssembleIds(req.getAssembleIds());
+            PracticeSetVO practiceSetVO = practiceSetService.addPractice(dto);
+            if (log.isInfoEnabled()) {
+                log.info("获取练习题目列表出参{}", JSON.toJSONString(practiceSetVO));
+            }
+            return Result.ok(practiceSetVO);
+        } catch (IllegalArgumentException e) {
+            log.error("参数异常！错误原因{}", e.getMessage(), e);
+            return Result.fail(e.getMessage());
+        } catch (Exception e) {
+            log.error("获取练习题目列表异常！错误原因{}", e.getMessage(), e);
+            return Result.fail("获取练习题目列表异常！");
+        }
+    }
+
 
 }
