@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan("com.xitianqujing")
-@MapperScan("com.jingdianjichi.**.dao")
+@MapperScan("com.xitianqujing.**.dao")
 @EnableFeignClients(basePackages = "com.xitianqujing")
 public class PracticeApplication {
 
