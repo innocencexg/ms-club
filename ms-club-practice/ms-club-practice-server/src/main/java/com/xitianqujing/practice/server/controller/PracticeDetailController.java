@@ -2,6 +2,7 @@ package com.xitianqujing.practice.server.controller;
 import com.google.common.base.Preconditions;
 import com.xitianqujing.auth.entity.Result;
 import com.xitianqujing.practice.api.req.*;
+import com.xitianqujing.practice.api.vo.RankVO;
 import com.xitianqujing.practice.api.vo.ReportVO;
 import com.xitianqujing.practice.api.vo.ScoreDetailVO;
 import com.xitianqujing.practice.api.vo.SubjectDetailVO;
@@ -154,6 +155,23 @@ public class PracticeDetailController {
         }
     }
 
+
+    /**
+     * 获取练习榜
+     */
+    @PostMapping(value = "/getPracticeRankList")
+    public Result<List<RankVO>> getPracticeRankList() {
+        try {
+            List<RankVO> list = practiceDetailService.getPracticeRankList();
+            if (log.isInfoEnabled()) {
+                log.info("练习榜出参{}", list);
+            }
+            return Result.ok(list);
+        } catch (Exception e) {
+            log.error("练习榜报错！错误原因{}", e.getMessage(), e);
+            return Result.fail("练习榜异常！");
+        }
+    }
 
 
 }

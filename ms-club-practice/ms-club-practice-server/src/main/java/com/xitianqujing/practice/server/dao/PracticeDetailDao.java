@@ -1,6 +1,7 @@
 package com.xitianqujing.practice.server.dao;
 
 import com.xitianqujing.practice.server.entity.po.PracticeDetailPO;
+import com.xitianqujing.practice.server.entity.po.PracticeRankPO;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -38,5 +39,15 @@ public interface PracticeDetailDao {
      * 获取答案情况
      */
     PracticeDetailPO selectAnswer(@Param("practiceId") Long practiceId,@Param("subjectId") Long subjectId);
+    /**
+     * 获取排行榜情况
+     */
+    List<PracticeRankPO> getPracticeCount();
+    /**
+     * 删除练习详情
+     */
+    int deleteByPracticeId(Long practiceId);
+
+
 
 }

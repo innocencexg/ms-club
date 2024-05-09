@@ -373,5 +373,23 @@ public class PracticeDetailServiceImpl implements PracticeDetailService {
         return map;
     }
 
+    @Override
+    public List<RankVO> getPracticeRankList() {
+        List<RankVO> list = new LinkedList<>();
+        List<PracticeRankPO> poList = practiceDetailDao.getPracticeCount();
+        if (CollectionUtils.isEmpty(poList)) {
+            return list;
+        }
+        poList.forEach(e -> {
+            RankVO rankVO = new RankVO();
+            rankVO.setCount(e.getCount());
+            UserInfo userInfo = userRpc.getUserInfo(e.getCreatedBy());
+            rankVO.setName(userInfo.getNickName());
+            rankVO.setAvatar(userInfo.getAvatar());
+            list.add(rankVO);
+        });
+        return list;
+    }
+
 
 }
