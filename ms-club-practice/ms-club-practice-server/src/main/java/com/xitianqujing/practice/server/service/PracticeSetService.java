@@ -3,6 +3,7 @@ package com.xitianqujing.practice.server.service;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectsReq;
 import com.xitianqujing.practice.api.vo.PracticeSetVO;
 import com.xitianqujing.practice.api.vo.PracticeSubjectListVO;
+import com.xitianqujing.practice.api.vo.PracticeSubjectVO;
 import com.xitianqujing.practice.api.vo.SpecialPracticeVO;
 import com.xitianqujing.practice.server.entity.dto.PracticeSubjectDTO;
 
@@ -23,5 +24,9 @@ public interface PracticeSetService {
      */
     PracticeSubjectListVO getSubjects(GetPracticeSubjectsReq req);
 
+    /**
+     * 获取题目
+     */
+    PracticeSubjectVO getPracticeSubject(PracticeSubjectDTO dto);
 
 }

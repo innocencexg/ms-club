@@ -14,6 +14,6 @@ public interface SubjectDao {
      */
     List<SubjectPO> getPracticeSubject(PracticeSubjectDTO dto);
 
-
+    SubjectPO selectById(Long subjectId);
 
 }
