@@ -36,5 +36,9 @@ public interface PracticeDetailService {
      * 练习榜
      */
     List<RankVO> getPracticeRankList();
+    /**
+     * 放弃练习
+     */
+    Boolean giveUp(Long practiceId);
 
 }
