@@ -6,11 +6,9 @@ import com.xitianqujing.practice.api.common.Result;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectListReq;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectReq;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectsReq;
-import com.xitianqujing.practice.api.vo.PracticeSetVO;
-import com.xitianqujing.practice.api.vo.PracticeSubjectListVO;
-import com.xitianqujing.practice.api.vo.PracticeSubjectVO;
-import com.xitianqujing.practice.api.vo.SpecialPracticeVO;
+import com.xitianqujing.practice.api.vo.*;
 import com.xitianqujing.practice.server.entity.dto.PracticeSubjectDTO;
+import com.xitianqujing.practice.server.service.PracticeDetailService;
 import com.xitianqujing.practice.server.service.PracticeSetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
@@ -37,6 +35,8 @@ public class PracticeSetController {
     @Resource
     private PracticeSetService practiceSetService;
 
+    @Resource
+    private PracticeDetailService practiceDetailService;
 
     /**
      * 获取专项训练
@@ -138,6 +138,9 @@ public class PracticeSetController {
             return Result.fail("获取练习题目详情异常！");
         }
     }
+
+
+
 
 
 
