@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.base.Preconditions;
 import com.xitianqujing.practice.api.common.PageResult;
 import com.xitianqujing.practice.api.common.Result;
-import com.xitianqujing.practice.api.req.GetPracticeSubjectListReq;
-import com.xitianqujing.practice.api.req.GetPracticeSubjectReq;
-import com.xitianqujing.practice.api.req.GetPracticeSubjectsReq;
-import com.xitianqujing.practice.api.req.GetPreSetReq;
+import com.xitianqujing.practice.api.req.*;
 import com.xitianqujing.practice.api.vo.*;
 import com.xitianqujing.practice.server.entity.dto.PracticeSetDTO;
 import com.xitianqujing.practice.server.entity.dto.PracticeSubjectDTO;
@@ -172,6 +169,27 @@ public class PracticeSetController {
         }
     }
 
+
+    /**
+     * 获取未完成的练题内容
+     */
+    @PostMapping(value = "/getUnCompletePractice")
+    public Result<PageResult<UnCompletePracticeSetVO>> getUnCompletePractice(@RequestBody GetUnCompletePracticeReq req) {
+        try {
+            Preconditions.checkArgument(!Objects.isNull(req), "参数不能为空！");
+            PageResult<UnCompletePracticeSetVO> list = practiceSetService.getUnCompletePractice(req);
+            if (log.isInfoEnabled()) {
+                log.info("获取未完成练习内容出参{}", JSON.toJSONString(list));
+            }
+            return Result.ok(list);
+        } catch (IllegalArgumentException e) {
+            log.error("参数异常！错误原因{}", e.getMessage(), e);
+            return Result.fail(e.getMessage());
+        } catch (Exception e) {
+            log.error("获取未完成练习内容异常！错误原因{}", e.getMessage(), e);
+            return Result.fail("获取未完成练习内容异常！");
+        }
+    }
 
 
 

@@ -7,6 +7,7 @@ import com.xitianqujing.practice.api.enums.CompleteStatusEnum;
 import com.xitianqujing.practice.api.enums.IsDeletedFlagEnum;
 import com.xitianqujing.practice.api.enums.SubjectInfoTypeEnum;
 import com.xitianqujing.practice.api.req.GetPracticeSubjectsReq;
+import com.xitianqujing.practice.api.req.GetUnCompletePracticeReq;
 import com.xitianqujing.practice.api.vo.*;
 import com.xitianqujing.practice.server.dao.*;
 import com.xitianqujing.practice.server.entity.dto.CategoryDTO;
@@ -14,6 +15,7 @@ import com.xitianqujing.practice.server.entity.dto.PracticeSetDTO;
 import com.xitianqujing.practice.server.entity.dto.PracticeSubjectDTO;
 import com.xitianqujing.practice.server.entity.po.*;
 import com.xitianqujing.practice.server.service.PracticeSetService;
+import com.xitianqujing.practice.server.util.DateUtils;
 import com.xitianqujing.practice.server.util.LoginUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -352,6 +354,36 @@ public class PracticeSetServiceImpl implements PracticeSetService {
     }
 
 
+    @Override
+    public PageResult<UnCompletePracticeSetVO> getUnCompletePractice(GetUnCompletePracticeReq req) {
+        PageResult<UnCompletePracticeSetVO> pageResult = new PageResult<>();
+        PageInfo pageInfo = req.getPageInfo();
+        pageResult.setPageNo(pageInfo.getPageNo());
+        pageResult.setPageSize(pageInfo.getPageSize());
+        int start = (pageInfo.getPageNo() - 1) * pageInfo.getPageSize();
+        String loginId = LoginUtil.getLoginId();
+        Integer count = practiceDao.getUnCompleteCount(loginId);
+        if (count == 0) {
+            return pageResult;
+        }
+        List<PracticePO> poList = practiceDao.getUnCompleteList(loginId, start, req.getPageInfo().getPageSize());
+        if (log.isInfoEnabled()) {
+            log.info("获取未完成的考卷列表{}", JSON.toJSONString(poList));
+        }
+        List<UnCompletePracticeSetVO> list = new LinkedList<>();
+        poList.forEach(e -> {
+            UnCompletePracticeSetVO vo = new UnCompletePracticeSetVO();
+            vo.setSetId(e.getSetId());
+            vo.setPracticeId(e.getId());
+            vo.setPracticeTime(DateUtils.format(e.getSubmitTime(), "yyyy-MM-dd"));
+            PracticeSetPO practiceSetPO = practiceSetDao.selectById(e.getSetId());
+            vo.setTitle(practiceSetPO.getSetName());
+            list.add(vo);
+        });
+        pageResult.setRecords(list);
+        pageResult.setTotal(count);
+        return pageResult;
+    }
 
 
 

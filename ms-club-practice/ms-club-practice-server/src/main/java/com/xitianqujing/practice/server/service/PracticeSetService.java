@@ -34,6 +34,9 @@ public interface PracticeSetService {
     PageResult<PracticeSetVO> getPreSetContent(PracticeSetDTO dto);
 
 
-
+    /**
+     * 获取未完成练习内容
+     */
+    PageResult<UnCompletePracticeSetVO> getUnCompletePractice(GetUnCompletePracticeReq req);
 
 }
