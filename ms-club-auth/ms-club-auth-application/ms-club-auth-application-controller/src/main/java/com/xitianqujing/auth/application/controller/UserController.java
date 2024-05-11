@@ -91,7 +91,7 @@ public class UserController {
             return Result.ok(AuthUserDTOConverter.INSTANCE.convertBOToDTO(userInfo));
         } catch (Exception e) {
             log.error("UserController.update.error:{}", e.getMessage(), e);
-            return Result.fail("更新用户信息失败");
+            return Result.fail("获取用户信息失败");
         }
     }
 
