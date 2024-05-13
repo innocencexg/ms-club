@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xitianqujing.subject.infra.basic.mapper.CommunicationDao">
+
+    <resultMap type="com.xitianqujing.subject.infra.basic.entity.Communication" id="CommunicationMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="contentTitle" column="content_title" jdbcType="VARCHAR"/>
+        <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CommunicationMap">
+        select
+          id, created_by, created_time, update_by, update_time, content, content_title, avatar
+        from communication
+        where id = #{id}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from communication
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createdBy != null and createdBy != ''">
+                and created_by = #{createdBy}
+            </if>
+            <if test="createdTime != null">
+                and created_time = #{createdTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="contentTitle != null and contentTitle != ''">
+                and content_title = #{contentTitle}
+            </if>
+            <if test="avatar != null and avatar != ''">
+                and avatar = #{avatar}
+            </if>
+        </where>
+    </select>
+
+    <select id="countByCondition" resultType="java.lang.Integer">
+        select count(1)
+        from communication
+    </select>
+    <select id="quertPage" resultMap="CommunicationMap">
+        select id,
+               created_by,
+               created_time,
+               content,
+               content_title,
+               avatar
+        from communication
+        order by id desc
+        limit #{start},#{pageSize}
+    </select>
+    <select id="querybyUserId" resultType="java.lang.String">
+        select nick_name
+        from auth_user
+        where user_name = #{loginId}
+    </select>
+    <select id="quertPageByUser" resultMap="CommunicationMap">
+        select id,
+               created_time,
+               content,
+               content_title,
+               avatar
+        from communication
+        where created_by = #{userName}
+        limit #{start},#{pageSize}
+    </select>
+    <select id="queryurl" resultType="java.lang.String">
+        select avatar
+        from auth_user
+        where user_name = #{loginId}
+    </select>
+    <select id="getcommunicationdetail" resultMap="CommunicationMap">
+        select created_by,
+               created_time,
+               content,
+               avatar
+        from communication
+        where id = #{id}
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into communication(created_by, created_time, update_by, update_time, content, content_title, avatar)
+        values (#{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{content}, #{contentTitle}, #{avatar})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into communication(created_by, created_time, update_by, update_time, content, content_title, avatar)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.content}, #{entity.contentTitle}, #{entity.avatar})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into communication(created_by, created_time, update_by, update_time, content, content_title, avatar)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.content}, #{entity.contentTitle}, #{entity.avatar})
+        </foreach>
+        on duplicate key update
+        created_by = values(created_by),
+        created_time = values(created_time),
+        update_by = values(update_by),
+        update_time = values(update_time),
+        content = values(content),
+        content_title = values(content_title),
+        avatar = values(avatar)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update communication
+        <set>
+            <if test="createdBy != null and createdBy != ''">
+                created_by = #{createdBy},
+            </if>
+            <if test="createdTime != null">
+                created_time = #{createdTime},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="contentTitle != null and contentTitle != ''">
+                content_title = #{contentTitle},
+            </if>
+            <if test="avatar != null and avatar != ''">
+                avatar = #{avatar},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteByUser">
+        delete from communication where id = #{id}
+    </delete>
+
+</mapper>
+

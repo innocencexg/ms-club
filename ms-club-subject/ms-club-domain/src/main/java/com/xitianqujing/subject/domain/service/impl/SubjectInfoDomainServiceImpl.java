@@ -111,6 +111,7 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
         int start = (subjectInfoBO.getPageNo() - 1) * subjectInfoBO.getPageSize();
         SubjectInfo subjectInfo = SubjectInfoConvert.INSTANT.convertBoToInfo(subjectInfoBO);
         subjectInfo.setSubjectType(4);
+
         int count = subjectInfoService.countByCondition(subjectInfo, subjectInfoBO.getCategoryId(), subjectInfoBO.getLabelId());
         if (count == 0) {
             return pageResult;
