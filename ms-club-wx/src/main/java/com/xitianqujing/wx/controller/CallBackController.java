@@ -11,10 +11,7 @@ import javax.annotation.Resource;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  17:38
- */
+
 @RestController
 @Slf4j
 public class CallBackController {

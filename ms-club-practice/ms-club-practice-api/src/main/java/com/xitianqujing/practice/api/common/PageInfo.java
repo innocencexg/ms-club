@@ -1,9 +1,5 @@
 package com.xitianqujing.practice.api.common;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/05/08  14:41
- */
 public class PageInfo {
 
     private Integer pageNo = 1;

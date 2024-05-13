@@ -19,10 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/25  21:32
- */
 
 @RestController
 @RequestMapping("/user/")

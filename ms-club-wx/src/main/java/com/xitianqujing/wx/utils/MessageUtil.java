@@ -10,10 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  17:40
- */
+
 public class MessageUtil {
 
     /**

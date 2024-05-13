@@ -6,10 +6,6 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/05/08  14:39
- */
 
 @Data
 public class PageResult<T> implements Serializable {

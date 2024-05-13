@@ -1,9 +1,5 @@
 package com.xitianqujing.wx.handler;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  18:42
- */
 public enum WxChatMsgTypeEnum {
     SUBSCRIBE("event.subscribe", "用户关注事件"),
     TEXT_MSG("text", "接收用户文本消息");

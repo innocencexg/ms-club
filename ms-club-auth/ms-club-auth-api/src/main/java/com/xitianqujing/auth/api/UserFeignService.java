@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 用户服务feign
- * @Author: gx
- * @CreateTime: 2024/03/02  01:11
  */
 @FeignClient("ms-club-auth-dev")
 public interface UserFeignService {

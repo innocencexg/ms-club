@@ -4,10 +4,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-/**
- * @Author: gx
- * @CreateTime: 2024/02/26  18:43
- */
 @Component
 @Slf4j
 public class SubscribeMsgHandler implements WxChatMsgHandler {
